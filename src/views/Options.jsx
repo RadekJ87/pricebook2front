@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import {IconButton} from "@mui/material";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoneyBillTrendUp} from '@fortawesome/free-solid-svg-icons/faMoneyBillTrendUp';
+// import { faMoneyBillTrendUp} from '@fortawesome/free-solid-svg-icons/faMoneyBillTrendUp';
 
 
 const Options = () => {
@@ -44,9 +44,6 @@ const Options = () => {
                     variant="h4">
                         Zmiana cen
                     </Typography>
-                    <IconButton aria-label="Example">
-                    <FontAwesomeIcon  icon="fa-money-bill" />
-                </IconButton>
                 </Paper>
             </Box>
         </WallpaperDiv>
