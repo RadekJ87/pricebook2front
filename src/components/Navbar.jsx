@@ -39,13 +39,13 @@ const pages = [
 // dane testowe do user
 const fakeNormalUser = {
     username: 'John User',
-    img: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+    profilePic: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
     admin: false,
 }
 
 const fakeAdmin = {
     username: 'John Admin',
-    img: "https://randomuser.me/api/portraits/thumb/men/73.jpg",
+    profilePic: "https://randomuser.me/api/portraits/thumb/men/73.jpg",
     admin: true,
 }
 
@@ -199,7 +199,7 @@ const Navbar = () => {
                         >
                             {user.username}
                         </Typography>
-                        <Avatar sx={{marginRight: "10px"}} alt={user.username} src={user.img}/>
+                        <Avatar sx={{marginRight: "10px"}} alt={user.username} src={user.profilePic}/>
                     </Box>) : (<Box sx={{flex: 2}}></Box>)}
 
                     {/* widok dla mobile*/}
@@ -281,7 +281,7 @@ const Navbar = () => {
                         >
                             {user.username}
                         </Typography>
-                        <Avatar sx={{marginRight: "10px"}} alt={user.username} src={user.img}/>
+                        <Avatar sx={{marginRight: "10px"}} alt={user.username} src={user.profilePic}/>
                     </Box>) : (<Box sx={{
                         flex: 100,
                         display: {xs: 'flex', md: 'none'},
