@@ -18,7 +18,7 @@ const ProductsTable = ({products, columns, search}) => {
     return (
         <>
             {!!products.length ? (<Paper sx={{width: '100%', overflow: 'hidden'}}>
-                    <TableContainer sx={{maxHeight: 640}}>
+                    <TableContainer sx={{maxHeight: {lg: "540px", xl: "640px"}}}>
                         <Table stickyHeader aria-label="sticky table">
                             <CustomizableTableHead columns={columns}/>
                             <TableBody>

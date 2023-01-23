@@ -9,7 +9,7 @@ export const SearchBox = styled(Box)(() => ({
     flexDirection: "row",
     padding: "8px",
     minWidth: "40%",
-    height: "40px",
+    // height: "40px",
     marginBottom: "25px",
     justifyContent: "center",
     backgroundColor: "#fafafa",

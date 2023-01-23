@@ -26,7 +26,12 @@ const ProductsSearchBarWithButton = ({onSearch}) => {
     }
 
     return (
-        <SearchBox sx={{minWidth:"50%", gap: 2}}>
+        <SearchBox sx={{
+            flexDirection: {xs: "column", sm: "row"},
+            alignItems : {xs: "center"},
+            minWidth: {sm: "97%", md: "50%"},
+            gap: 2
+        }}>
             <Box sx={{
                 display: "flex",
                 flexDirection: "row",
@@ -39,7 +44,7 @@ const ProductsSearchBarWithButton = ({onSearch}) => {
                         mr: 2,
                         flex: 1,
                         fontFamily: 'Oswald',
-                        fontSize: "24px",
+                        fontSize: {xs: "14px", md: "24px"},
                         textTransform: "uppercase",
                     }}>Podaj numer rysunku</Typography>
             </Box>
