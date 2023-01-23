@@ -46,14 +46,14 @@ const fakeUsers = [
         admin: false,
     },
     {
-        id: 2312351,
-        username: 'Zenek Admininik II',
+        _id: 2312351,
+        username: 'Zenek Admininstrator',
         profilePic: "https://randomuser.me/api/portraits/thumb/men/44.jpg",
         admin: true,
     },
     {
-        id: 323431,
-        username: 'Al User',
+        _id: 323431,
+        username: 'Alan User',
         profilePic: "https://randomuser.me/api/portraits/thumb/men/8.jpg",
         admin: true,
     },
@@ -144,8 +144,7 @@ const OptionsUsers = () => {
                 </Box>
                 {isCreated ?
                     (<MainDiv sx={{ alignContent: 'space-between',justifyContent: "center"}}>
-                        {/*<UserCreator/>*/}
-                        po ukończeniu podpiąć UserCreator
+                        <UserCreator/>
                     </MainDiv>)
                     :
                     (<MainDiv>
