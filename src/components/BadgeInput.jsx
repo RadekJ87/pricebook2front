@@ -4,13 +4,13 @@ import {Box, Tooltip} from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import CameraIcon from "@mui/icons-material/Camera";
 
-export const SmallImgBadge = styled(Avatar)(({theme}) => ({
+export const SmallImgBadge = styled(Avatar)(({ theme }) => ({
     width: 40,
     height: 40,
     border: `2px solid ${theme.palette.background.paper}`,
 }));
 
-export const SmallCameraIconBadge = styled(CameraIcon)(({theme}) => ({
+export const SmallCameraIconBadge = styled(CameraIcon)(({ theme }) => ({
     cursor: "pointer",
     width: 38,
     height: 38,
@@ -24,16 +24,18 @@ export const SmallCameraIconBadge = styled(CameraIcon)(({theme}) => ({
     }
 }));
 
-const BadgeInput = ({badgeComponent}) => {
-    return <Box>
+const BadgeInput = ({badgeComponent, onChange}) => {
+    const handleClick = e => {
+        onChange(e.target.files[0]);
+    }
 
+    return <Box>
         <label htmlFor="avatar">
             <Tooltip title="Dodaj zdjęcie">
                 {badgeComponent}
             </Tooltip>
         </label>
-        <input type="file" id="avatar" style={{display: "none"}}/>
-
+        <input onChange={handleClick} type="file" id="avatar" accept="image/*" style={{display: "none"}}/>
     </Box>
 }
 

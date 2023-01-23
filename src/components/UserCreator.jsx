@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Badge, Box, FormControlLabel, Input, Switch} from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import {styled} from "@mui/material/styles";
@@ -71,8 +71,21 @@ const Inputs = styled(Box)(({theme}) => ({
 
 
 const UserCreator = () => {
+    const [file, setFile] = useState(null);
+
+    const handleInputChange = (image) => {
+        setFile(image);
+    }
+
+    useEffect(() =>{
+        console.log('file -> ', file);
+    }, [file])
+
     return (
-        <FormBox>
+        <FormBox className="form-box" sx={{
+            width: {md: "70%", lg: "70%", xl: "55%"},
+            height: {lg: "315px", xl: "5500px"},
+        }}>
             <WrapperBox>
                 <ImageBox>
                     <Box sx={{
@@ -83,9 +96,9 @@ const UserCreator = () => {
                         <Badge
                             overlap="circular"
                             anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
-                            badgeContent={<BadgeInput badgeComponent={<SmallCameraIconBadge/>}/>}
+                            badgeContent={<BadgeInput onChange={handleInputChange} badgeComponent={<SmallCameraIconBadge/>}/>}
                         >
-                            <BigAvatar alt="" src={avatar}/>
+                            <BigAvatar alt="" src={file ? URL.createObjectURL(file) : ""}/>
                         </Badge>
                     </Box>
                 </ImageBox>
