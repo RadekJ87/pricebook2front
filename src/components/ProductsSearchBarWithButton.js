@@ -30,7 +30,7 @@ const ProductsSearchBarWithButton = ({onSearch}) => {
             flexDirection: {xs: "column", sm: "row"},
             alignItems : {xs: "center"},
             minWidth: {sm: "97%", md: "50%"},
-            gap: 2
+            gap: {xs: "8px", md: "16px"}
         }}>
             <Box sx={{
                 display: "flex",
@@ -41,7 +41,7 @@ const ProductsSearchBarWithButton = ({onSearch}) => {
                     variant="h6"
                     component="h6"
                     sx={{
-                        mr: 2,
+                        // mr: 2,
                         flex: 1,
                         fontFamily: 'Oswald',
                         fontSize: {xs: "14px", md: "24px"},

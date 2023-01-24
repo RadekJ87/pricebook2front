@@ -23,14 +23,20 @@ export const CenteredDivWithWallpaper = styled(Box)(({ image }) => ({
     }
 }));
 
-const WallpaperDiv = ({children, image, position = "relative"}) => {
+const WallpaperDiv = ({children, image, width, height, position = "relative", top="0%"}) => {
     return (
         <CenteredDivWithWallpaper image={image}>
             <Box sx={{
+                width: {width},
+                height: {height},
                 position: {position},
-                top: position === "absolute" ? "10%" : "",
-                left: position === "absolute" ? "50%" : "",
-                transform: position === "absolute" ? "translateX(-50%)" : ""
+                top: {top},
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center"
+                // top: position === "absolute" ? "10%" : "",
+                // left: position === "absolute" ? "50%" : "",
+                // transform: position === "absolute" ? "translateX(-50%)" : ""
             }}>
                 {children}
             </Box>
