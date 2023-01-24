@@ -52,7 +52,7 @@ const ProductsTable = ({products, columns, search}) => {
                         </Table>
                     </TableContainer>
                     <TablePagination
-                        sx={{'& . MuiTablePagination-toolbar > *': {fontSize: {xs: "10px", sm: "12px", lg: "14px"}}}}
+                        sx={{'& .MuiTablePagination-toolbar > *': {fontSize: {xs: "10px", sm: "12px", lg: "14px"}}}}
                         rowsPerPageOptions={[10, 25, 50]}
                         labelRowsPerPage='Produktów na stronę:'
                         component="div"
