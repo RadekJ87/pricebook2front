@@ -100,7 +100,7 @@ const Products = () => {
     }
 
     return (
-        <WallpaperDiv width="100%" position="absolute" top="5%" image={test}>
+        <WallpaperDiv width="100%" position="absolute" top="3%" image={test}>
             <Box sx={{
                 //lg macbook
                 // width: {xs: '380px', sm: "560px", md: "880px", lg: "1200px", xl: "1600px"},
