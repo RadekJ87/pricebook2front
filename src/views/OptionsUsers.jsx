@@ -59,7 +59,28 @@ const fakeUsers = [
     },
 ]
 
-// mozna by zrobić refactor do osobnego komponentu, ale czy jest sens jak to jednorazowe wykorzystanie?
+const MainContainer = styled(Box)(({theme}) => ({
+    width: "80vw",
+    height: "75vh",
+    borderRadius: "15px",
+    display: "inline-flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    gap: "24px",
+    padding: "8px",
+    backgroundColor: "#fafafa",
+    [theme.breakpoints.up('sm')]: {
+        width: "80vw",
+        height: "75vh",
+    },
+    [theme.breakpoints.up('md')]: {
+        height: "50vh",
+    },
+    [theme.breakpoints.up('lg')]: {
+        height: "75vh",
+    },
+}));
+
 const MainDiv = styled(Box)(({theme}) => ({
     display: 'inline-flex',
     flexWrap: 'wrap',
@@ -67,46 +88,36 @@ const MainDiv = styled(Box)(({theme}) => ({
     alignItems: 'center',
     alignContent: 'flex-start',
     [theme.breakpoints.up('xs')]: {
-        minHeight: '200px',
-        margin: 'auto 42px',
+        justifyContent: "center",
+        fontSize: "12px",
+        overflow: "scroll"
+    },
+    [theme.breakpoints.up('sm')]: {
+        fontSize: "14px",
     },
     [theme.breakpoints.up('md')]: {
-        minHeight: '400px',
-        margin: 'auto 68px',
+        fontSize: "16px",
+        justifyContent: "space-between",
+    },
+    [theme.breakpoints.up('lg')]: {
+        fontSize: "18px",
+        overflow: "inherit"
     },
     [theme.breakpoints.up('xl')]: {
-        minHeight: '600px',
-        margin: 'auto 10px',
+        fontSize: "20px",
+        justifyContent: "flex-start",
+        marginLeft: "55px"
     },
 }));
 
-const MainContainer = styled(Box)(({theme}) => ({
-    borderRadius: "15px",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    gap: "24px",
-    padding: "8px",
-    backgroundColor: "#fafafa",
-    [theme.breakpoints.up('xs')]: {
-        width: "380px",
-    },
-    [theme.breakpoints.up('md')]: {
-        width: "1024px",
-    },
-    [theme.breakpoints.up('xl')]: {
-        width: "1500px",
-    },
-}));
 
 const OptionsUsers = () => {
     const [users, setUsers] = useState([]);
     const [isCreated, setIsCreated] = useState(false);
 
-    // not yet, still fake data
     // useEffect(() => {
     //     const fetchUsers = async () => {
-    //         const res = await axios.get(`/options/manage-users/`);
+    //         const res = await axios.get(`${process.env.REACT_APP_API_URL}/options/manage-users/`);
     //         setUsers(res.data);
     //     }
     //     fetchUsers().catch(console.error);
@@ -116,14 +127,15 @@ const OptionsUsers = () => {
     // }, []);
 
 
+
     const toggle = () => {
         setIsCreated(!isCreated);
     }
 
     return (
         <WallpaperDiv image={Lathe}>
-            <MainContainer>
-                <Box>
+            <MainContainer className="main-container">
+                <Box className="top-bar">
                     <Toolbar sx={{display: "flex", justifyContent: "space-between"}}>
                         <Typography
                             component="h6"
@@ -131,23 +143,28 @@ const OptionsUsers = () => {
                             sx={{
                                 fontFamily: "Oswald",
                                 fontWeight: 400,
-                                fontSize: "24px",
+                                fontSize: {xs: '18px', sm: "22px", md: "24px"},
                                 letterSpacing: "1px"
                             }}>
                             Użytkownicy
                         </Typography>
-                        <Button variant="outlined" startIcon={isCreated ? <NotInterestedIcon/> : <PersonAddIcon/>}
+                        <Button sx={{fontSize: {xs: '8px', sm: "10px", md: "12px", lg: "14px"}}}
+                                variant="outlined" startIcon={isCreated ? <NotInterestedIcon/> : <PersonAddIcon/>}
                                 onClick={toggle}>
                             {isCreated ? "Anuluj dodawanie" : "Dodaj użytkownika"}
                         </Button>
                     </Toolbar>
                 </Box>
                 {isCreated ?
-                    (<MainDiv sx={{ alignContent: 'space-between',justifyContent: "center"}}>
+                    (<MainDiv className="main-div" sx={{
+                        marginLeft: {xl: 0},
+                        overflow: {xs: "inherit"},
+                        justifyContent: {xs: "center"},
+                    }}>
                         <UserCreator/>
                     </MainDiv>)
                     :
-                    (<MainDiv>
+                    (<MainDiv className="main-div">
                         {fakeUsers.map(user => (<SingleUserPaper key={user._id} user={user}/>))}
                     </MainDiv>)
                 }
@@ -155,4 +172,5 @@ const OptionsUsers = () => {
         </WallpaperDiv>
     );
 };
+
 export default OptionsUsers;

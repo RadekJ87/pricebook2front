@@ -16,8 +16,8 @@ const SingleUserPaper = ({user}) => {
                 justifyContent: "flex-start",
                 alignItems: "center",
                 m: 1,
-                width: {xs: '85%', md: "47%", lg: "31%", xl: "23%"},  //
-                height: {xs: '10vh', md: "10vh"}, //
+                width: {xs: '85%', md: "47%", lg: "31%", xl: "23%"},
+                height: {xs: '10vh', md: "10vh", xl: "12vh"},
                 cursor: "pointer",
                 textDecoration: "none",
             }}>
