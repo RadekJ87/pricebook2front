@@ -15,22 +15,31 @@ const OptionBox = styled(Box)(({theme}) => ({
     [theme.breakpoints.up('xs')]: {
         '& > :not(style)': {
             margin: "10px",
-            width: 165,
-            height: 220,
+            // width: 165,
+            // height: 220,
+            // fontSize: "12px"
         }
     },
     [theme.breakpoints.up('sm')]: {
         '& > :not(style)': {
             margin: "15px",
-            width: 190,
-            height: 250,
+            // width: 190,
+            // height: 250,
         }
     },
     [theme.breakpoints.up('md')]: {
         '& > :not(style)': {
             margin: "20px",
-            width: 280,
-            height: 400,
+        }
+    },
+    [theme.breakpoints.up('xl')]: {
+        '& > :not(style)': {
+            margin: "20px",
+        }
+    },
+    [theme.breakpoints.up('xl')]: {
+        '& > :not(style)': {
+            margin: "20px",
         }
     },
 }));

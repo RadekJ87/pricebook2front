@@ -12,8 +12,6 @@ export const SmallImgBadge = styled(Avatar)(({ theme }) => ({
 
 export const SmallCameraIconBadge = styled(CameraIcon)(({ theme }) => ({
     cursor: "pointer",
-    width: 38,
-    height: 38,
     backgroundColor: `${theme.palette.background.paper}`,
     border: "2px solid black",
     borderRadius: "50%",
@@ -21,7 +19,19 @@ export const SmallCameraIconBadge = styled(CameraIcon)(({ theme }) => ({
     '&:hover': {
         transform: 'translateY(-1px)',
         boxShadow: '0px 0px 25px 7px rgba(255,0,0)',
-    }
+    },
+    [theme.breakpoints.up('xs')]: {
+        width: 18,
+        height: 18,
+    },
+    [theme.breakpoints.up('xs')]: {
+        width: 24,
+        height: 24,
+    },
+    [theme.breakpoints.up('lg')]: {
+        width: 38,
+        height: 38,
+    },
 }));
 
 const BadgeInput = ({badgeComponent, onChange}) => {

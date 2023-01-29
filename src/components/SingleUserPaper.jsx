@@ -10,27 +10,27 @@ const SingleUserPaper = ({user}) => {
         <Paper
             elevation={6}
             component={Link}
-            to={`${user.id}`}
+            to={`${user._id}`}
             sx={{
                 display: "flex",
                 justifyContent: "flex-start",
                 alignItems: "center",
                 m: 1,
-                width: 280,
-                height: 100,
+                width: {xs: '85%', md: "47%", lg: "31%", xl: "23%"},
+                height: {xs: '10vh', md: "10vh", xl: "12vh"},
                 cursor: "pointer",
                 textDecoration: "none",
             }}>
             <Avatar
                 alt="Remy Sharp"
-                src={user?.profilePic}
+                src={user?.profilePic ?? null}
                 sx={{width: 45, height: 45, margin: "0 20px",}}/>
             <Box sx={{
                 display: "flex",
                 flexDirection: "column",
             }}>
-                <Typography variant="h6" component="h6">{user.username}</Typography>
-                <Typography variant="caption" component="span" color="gray">{user.admin ? "Admin" : "User"}</Typography>
+                <Typography variant="h6" sx={{fontSize: "1em"}} component="h6">{user.username}</Typography>
+                <Typography variant="caption" sx={{fontSize: "0.8em"}} component="span" color="gray">{user.admin ? "Admin" : "User"}</Typography>
             </Box>
         </Paper>
     );
