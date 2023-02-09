@@ -13,15 +13,14 @@ const ProductsSearchBarWithButton = ({onSearch}) => {
 
     const handleSearchEvent = () => {
         const form = searchForm.current
-        console.log(`${form['search'].value}`)
         onSearch(`${form['search'].value}`);
     }
 
     const handleClearEvent = () => {
         searchForm.current.reset();
         searchForm.current.value = '';
-        console.log(searchForm.current.value === undefined ? "jest undefined" : "nie jest undefined");
-        console.log('jest', searchForm.current.value);
+        // console.log(searchForm.current.value === undefined ? "jest undefined" : "nie jest undefined");
+        // console.log('jest', searchForm.current.value);
         onSearch(searchForm.current.value);
     }
 
