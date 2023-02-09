@@ -81,7 +81,7 @@ const Products = () => {
     useEffect(() => {
         setIsLoading(true);
         const fetchProducts = async () => {
-            const res = await axios.get(`https://pricebooktwo-api.onrender.com/api/products/${search}`);
+            const res = await axios.get(`${process.env.REACT_APP_WEBSERVICE_URL}/products/${search}`);
             setProducts(res.data);
             setIsLoading(false);
         }

@@ -13,6 +13,7 @@ import SingleUserPaper from "../components/SingleUserPaper";
 import WallpaperDiv from "../components/WallpaperDiv";
 import UserCreator from "../components/UserCreator";
 import Lathe from "../images/backgroundAdmin.avif";
+import UserCreatorReactHookForm from "../components/UserCreatorReactHookForm";
 
 const fakeUsers = [
     {
@@ -115,17 +116,16 @@ const OptionsUsers = () => {
     const [users, setUsers] = useState([]);
     const [isCreated, setIsCreated] = useState(false);
 
-    // useEffect(() => {
-    //     const fetchUsers = async () => {
-    //         const res = await axios.get(`${process.env.REACT_APP_API_URL}/options/manage-users/`);
-    //         setUsers(res.data);
-    //     }
-    //     fetchUsers().catch(console.error);
-    //
-    //     return () => {
-    //     }
-    // }, []);
+    useEffect(() => {
+        const fetchUsers = async () => {
+            const res = await axios.get(`${process.env.REACT_APP_WEBSERVICE_URL}/options/manage-users/`);
+            setUsers(res.data);
+        }
+        fetchUsers().catch(console.error);
 
+        return () => {
+        }
+    }, [isCreated]);
 
 
     const toggle = () => {
@@ -161,11 +161,13 @@ const OptionsUsers = () => {
                         overflow: {xs: "inherit"},
                         justifyContent: {xs: "center"},
                     }}>
-                        <UserCreator/>
+                        {/* two versions avalable without and with validation*/}
+                        {/*<UserCreator onSuccessfulCreate={toggle}/>*/}
+                        <UserCreatorReactHookForm onSuccessfulCreate={toggle}/>
                     </MainDiv>)
                     :
                     (<MainDiv className="main-div">
-                        {fakeUsers.map(user => (<SingleUserPaper key={user._id} user={user}/>))}
+                        {users.map(user => (<SingleUserPaper key={user._id} user={user}/>))}
                     </MainDiv>)
                 }
             </MainContainer>
