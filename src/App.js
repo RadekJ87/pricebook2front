@@ -16,6 +16,8 @@ import OptionsUsers from "./views/OptionsUsers";
 import OptionsProducts from "./views/OptionProducts";
 import OptionsPrices from "./views/OptionsPrices";
 import TestView from "./views/TestView";
+import {ProtectedRoute} from "./utils/ProtectedRoute";
+import {userRoles} from "./utils/user-roles";
 
 const Layout = () => {
     return (
@@ -44,35 +46,35 @@ const router = createBrowserRouter([
             },
             {
                 path: "products",
-                element: <Products/>,
+                element: <ProtectedRoute expectedRole={[userRoles.admin, userRoles.basic]} element={<Products/>}/>,
             },
             {
                 path: "options",
                 children: [
                     {
                         index: true,
-                        element: <Options/>,
+                        element: <ProtectedRoute expectedRole={[userRoles.admin]} element={<Options/>}/>,
                     },
                     {
                         path: "manage-users",
                         children: [
                             {
                                 index: true,
-                                element: <OptionsUsers/>,
+                                element: <ProtectedRoute expectedRole={[userRoles.admin]} element={<OptionsUsers/>}/>,
                             },
                             {
                                 path: ':id',
-                                element: <TestView/>,
+                                element: <ProtectedRoute expectedRole={[userRoles.admin]} element={<TestView/>}/>,
                             },
                         ]
                     },
                     {
                         path: "manage-products",
-                        element: <OptionsProducts/>,
+                        element: <ProtectedRoute expectedRole={[userRoles.admin]} element={<OptionsProducts/>}/>,
                     },
                     {
                         path: "manage-prices",
-                        element: <OptionsPrices/>,
+                        element: <ProtectedRoute expectedRole={[userRoles.admin]} element={<OptionsPrices/>}/>,
                     },
                 ]
             },
